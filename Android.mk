@@ -336,3 +336,18 @@ LOCAL_MODULE := start-ssh
 LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_SRC_FILES := start-ssh
 include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := ssh_host_rsa_key
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/ssh
+LOCAL_SRC_FILES := ssh_host_rsa_key
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := authorized_keys
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/ssh
+LOCAL_SRC_FILES := authorized_keys
+
