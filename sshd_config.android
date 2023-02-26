@@ -10,7 +10,7 @@
 # possible, but leave them commented.  Uncommented options override the
 # default value.
 
-#Port 22
+Port 22
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
@@ -21,8 +21,8 @@ Protocol 2
 # HostKey for protocol version 1
 #HostKey /etc/ssh/ssh_host_key
 # HostKeys for protocol version 2
-HostKey /data/ssh/ssh_host_rsa_key
-HostKey /data/ssh/ssh_host_dsa_key
+HostKey /system/ssh/ssh_host_rsa_key
+#HostKey /data/ssh/ssh_host_dsa_key
 
 # Lifetime and size of ephemeral version 1 server key
 #KeyRegenerationInterval 1h
@@ -42,11 +42,11 @@ HostKey /data/ssh/ssh_host_dsa_key
 #MaxSessions 10
 
 #RSAAuthentication yes
-#PubkeyAuthentication yes
+PubkeyAuthentication yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
-AuthorizedKeysFile	/data/ssh/authorized_keys
+AuthorizedKeysFile	/system/ssh/authorized_keys
 
 # For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
 #RhostsRSAAuthentication no
@@ -59,7 +59,7 @@ AuthorizedKeysFile	/data/ssh/authorized_keys
 #IgnoreRhosts yes
 
 # To disable tunneled clear text passwords, change to no here!
-PasswordAuthentication no
+PasswordAuthentication yes
 #PermitEmptyPasswords no
 
 # Change to no to disable s/key passwords
@@ -86,13 +86,13 @@ PasswordAuthentication no
 # and ChallengeResponseAuthentication to 'no'.
 #UsePAM no
 
-#AllowAgentForwarding yes
-#AllowTcpForwarding yes
+AllowAgentForwarding yes
+AllowTcpForwarding yes
 #GatewayPorts no
 #X11Forwarding no
 #X11DisplayOffset 10
-#X11UseLocalhost yes
-#PrintMotd yes
+X11UseLocalhost yes
+PrintMotd yes
 #PrintLastLog yes
 #TCPKeepAlive yes
 #UseLogin no
@@ -104,14 +104,14 @@ PasswordAuthentication no
 #UseDNS yes
 #PidFile /var/run/sshd.pid
 #MaxStartups 10
-#PermitTunnel no
+PermitTunnel yes
 #ChrootDirectory none
 
 # no default banner path
 #Banner none
 
 # override default of no subsystems
-Subsystem	sftp	/usr/libexec/sftp-server
+Subsystem	sftp	/system/etc/ssh/libexec/sftp-server
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
